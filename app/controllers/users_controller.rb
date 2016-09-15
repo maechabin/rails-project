@@ -20,4 +20,19 @@ class UsersController < ApplicationController
     @user.save
     redirect_to '/users/index'
   end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update({
+      name: params[:user][:name],
+      username: params[:user][:username],
+      location: params[:user][:location],
+      about: params[:user][:about]
+    })
+    redirect_to :action => 'show', :id => @user.id
+  end
 end
