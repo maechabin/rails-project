@@ -35,4 +35,10 @@ class UsersController < ApplicationController
     })
     redirect_to :action => 'show', :id => @user.id
   end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to '/users/index'
+  end
 end

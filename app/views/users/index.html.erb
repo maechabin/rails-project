@@ -6,4 +6,6 @@
   <p><%= user.username %></p>
   <p><%= user.location %></p>
   <p><%= user.about %></p>
+  <a href="/users/<%= user.id %>/edit/">編集する</a>
+  <p><%= link_to '削除する', {:action => 'destroy', :id => user.id}, :confirm => '本当に削除して良いですか?', :method => :delete %></p>
 <% end %>
